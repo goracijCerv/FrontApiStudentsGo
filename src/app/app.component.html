@@ -47,6 +47,7 @@
     </button>
   </div>
 
+  @if (data.length > 0){
   <div class="primer-contendor-tabla">
     <div class="second-container-tabla">
       <table class="table">
@@ -60,23 +61,26 @@
           </tr>
         </thead>
         <tbody class="table-body">
+          @for (item of data; track item.id){
           <tr>
             <td class="celdas_td">
               <div
                 style="font-size: 0.875rem; font-weight: 500; color: #111827"
               >
-                Dumuy
+                {{ item.name }} {{ item.lastname }}
               </div>
-              <div style="font-size: 0.875rem; color: #6b7280">ID: 12234</div>
+              <div style="font-size: 0.875rem; color: #6b7280">
+                ID: {{ item.id }}
+              </div>
             </td>
             <td class="celdas_td" style="font-size: 0.875rem; color: #374151">
-              dumy&#64;email.com
+              {{ item.email }}
             </td>
             <td class="celdas_td" style="font-size: 0.875rem; color: #374151">
-              12
+              {{ item.age }}
             </td>
             <td class="celdas_td" style="font-size: 0.875rem; color: #374151">
-              46512121212
+              {{ item.number }}
             </td>
             <td
               class="celdas_td"
@@ -132,8 +136,18 @@
               </button>
             </td>
           </tr>
+          } @empty {
+          <tr>
+            <td class="celdas_td" style="font-size: 0.875rem; color: #374151">
+              No data
+            </td>
+          </tr>
+          }
         </tbody>
       </table>
     </div>
   </div>
+  } @else {
+  <div>Sin información</div>
+  }
 </div>
