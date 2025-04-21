@@ -74,6 +74,76 @@
   background-color: #1d4ed8;
 }
 
+.primer-contendor-tabla {
+  background-color: white;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.second-container-tabla {
+  overflow-x: auto;
+}
+.table {
+  min-width: 100%;
+  border-top-width: 1px;
+  border-color: #e5e7eb;
+}
+
+.table-body {
+  background-color: white;
+  border-top-width: 1px;
+  border-color: #e5e7eb;
+}
+
+.table-header {
+  padding: 0.75rem 1.25rem 0.75rem 1.25rem;
+  font-size: 0.75rem;
+  text-align: left;
+  font-weight: 500;
+  color: gray;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.edit-color {
+  border: none;
+  background: none;
+  color: #4f46e5;
+}
+
+.edit-color:hover {
+  color: #312e81;
+  cursor: pointer;
+}
+
+.eliminar-color {
+  border: none;
+  background: none;
+  color: #e35335;
+}
+
+.eliminar-color:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.send-email {
+  border: none;
+  background: none;
+  color: #008000;
+}
+
+.send-email:hover {
+  color: #006400;
+  cursor: pointer;
+}
+
+.celdas_td {
+  padding: 1.25rem 1rem 1.25rem 1rem;
+  white-space: nowrap;
+}
+
 @media screen and (max-width: 1007px) {
   .container {
     padding: 1.5rem;
