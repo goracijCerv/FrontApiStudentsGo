@@ -86,7 +86,11 @@
               class="celdas_td"
               style="margin-left: 5px; font-weight: 500; font-size: 0.875rem"
             >
-              <button class="edit-color" title="Editar">
+              <button
+                class="edit-color"
+                title="Editar"
+                (click)="studentModal(item.id)"
+              >
                 <svg
                   class="icon-container"
                   fill="none"

@@ -1,39 +1,73 @@
-@if(!isEdit){
-<h5 class="modal-title">Nuevo Estudiante</h5>
-}@else {
-<h5 class="modal-title">Editar Estudiante</h5>
-}
-<form>
-  <div style="margin-bottom: 1rem">
-    <label for="studentName" class="label-modal">Nombre</label>
-    <input type="text" name="studentName" id="studentName" class="inputs" />
-  </div>
+<div class="modal_container">
+  @if(!isEdit){
+  <h5 class="modal-title">Nuevo Estudiante</h5>
+  }@else {
+  <h5 class="modal-title">Editar Estudiante</h5>
+  }
+  <form [formGroup]="form" (submit)="saveOperation()">
+    <div style="margin-bottom: 1rem">
+      <label for="studentName" class="label-modal">Nombre</label>
+      <input
+        type="text"
+        name="studentName"
+        placeholder="Juan Martin"
+        id="studentName"
+        class="inputs"
+        formControlName="name"
+      />
+    </div>
 
-  <div style="margin-bottom: 1rem">
-    <label for="studentLastName" class="label-modal"></label>
-    <input
-      type="text"
-      name="studentLastName"
-      id="studentLastName"
-      class="inputs"
-    />
-  </div>
-  <div style="margin-bottom: 1rem">
-    <label for="studentEmail" class="label-modal">Email</label>
-    <input type="email" name="studentEmail" id="studentEmail" class="inputs" />
-  </div>
+    <div style="margin-bottom: 1rem">
+      <label for="studentLastName" class="label-modal">Apellidos</label>
+      <input
+        type="text"
+        name="studentLastName"
+        id="studentLastName"
+        placeholder="Hernandez Cortes"
+        class="inputs"
+        formControlName="lastname"
+      />
+    </div>
+    <div style="margin-bottom: 1rem">
+      <label for="studentEmail" class="label-modal">Email</label>
+      <input
+        type="email"
+        name="studentEmail"
+        id="studentEmail"
+        class="inputs"
+        placeholder="example@example.com"
+        formControlName="email"
+      />
+    </div>
 
-  <div style="margin-bottom: 1rem">
-    <label for="studentNumber" class="label-modal">Teléfono</label>
-    <input type="tel" name="studentNumber" id="studentNumber" class="inputs" />
-  </div>
-  <div style="margin-bottom: 1.25rem">
-    <label for="studentAge" class="label-modal">Edad</label>
-    <input type="number" name="studentAge" id="studentAge" class="inputs" />
-  </div>
+    <div style="margin-bottom: 1rem">
+      <label for="studentNumber" class="label-modal">Teléfono</label>
+      <input
+        type="tel"
+        name="studentNumber"
+        id="studentNumber"
+        class="inputs"
+        placeholder="4651213699"
+        formControlName="number"
+      />
+    </div>
+    <div style="margin-bottom: 1.25rem">
+      <label for="studentAge" class="label-modal">Edad</label>
+      <input
+        type="text"
+        name="studentAge"
+        id="studentAge"
+        class="inputs"
+        placeholder="24"
+        formControlName="age"
+      />
+    </div>
 
-  <div class="botnones_modal">
-    <button type="button" class="cancel-button">Cancelar</button>
-    <button type="submit" class="save-button">Guardar</button>
-  </div>
-</form>
+    <div class="botnones_modal">
+      <button type="button" class="cancel-button" (click)="close()">
+        Cancelar
+      </button>
+      <button type="submit" class="save-button">Guardar</button>
+    </div>
+  </form>
+</div>
