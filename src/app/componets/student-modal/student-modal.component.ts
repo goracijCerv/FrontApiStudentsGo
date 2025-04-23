@@ -31,8 +31,15 @@ export class StudentModalComponent implements OnInit {
       name: [, Validators.required],
       lastname: [, Validators.required],
       email: [, [Validators.required, Validators.email]],
-      number: [, [Validators.required, Validators.maxLength(10)]],
-      age: [, [Validators.required, Validators.max(99), Validators.min(12)]],
+      number: [
+        ,
+        [
+          Validators.required,
+          Validators.maxLength(10),
+          Validators.minLength(10),
+        ],
+      ],
+      age: [, [Validators.required]],
     });
 
     if (this.data.id != 0) {
@@ -79,6 +86,7 @@ export class StudentModalComponent implements OnInit {
         error: (err) => console.log('Error: ', err),
         complete: () => console.log('Se ha completado con éxito'),
       });
+      this.dialogRef.close();
     } else {
       const data: Student = {
         id: 0,
@@ -94,6 +102,7 @@ export class StudentModalComponent implements OnInit {
         error: (err) => console.log('Error: ', err),
         complete: () => console.log('Se ha completado con éxito'),
       });
+      this.dialogRef.close();
     }
   }
 }

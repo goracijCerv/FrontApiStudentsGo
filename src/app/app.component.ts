@@ -4,6 +4,7 @@ import { ApiService } from './services/api.service';
 import { Student } from './models/student';
 import { StudentModalComponent } from './componets/student-modal/student-modal.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { EliminateModalComponent } from './componets/eliminate-modal/eliminate-modal.component';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, MatDialogModule],
@@ -31,6 +32,27 @@ export class AppComponent implements OnInit {
         enterAnimationDuration: '500ms',
         exitAnimationDuration: '500ms',
         data: {
+          id: id,
+        },
+      })
+      .afterClosed()
+      .subscribe((obs) => {
+        this.apiService.getStudents().subscribe({
+          next: (data) => (this.data = data),
+          error: (err) => console.log('Error: ', err),
+          complete: () => console.log('Se ha completado con éxito'),
+        });
+      });
+  }
+
+  eliminateModal(name: string, lastname: string, id: number) {
+    this.dialog
+      .open(EliminateModalComponent, {
+        width: '70%',
+        enterAnimationDuration: '500ms',
+        exitAnimationDuration: '500ms',
+        data: {
+          completeName: name + ' ' + lastname,
           id: id,
         },
       })

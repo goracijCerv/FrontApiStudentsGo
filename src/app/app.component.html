@@ -106,7 +106,11 @@
                   ></path>
                 </svg>
               </button>
-              <button class="eliminar-color" title="Eliminar">
+              <button
+                class="eliminar-color"
+                title="Eliminar"
+                (click)="eliminateModal(item.name, item.lastname, item.id)"
+              >
                 <svg
                   class="icon-container"
                   fill="none"
