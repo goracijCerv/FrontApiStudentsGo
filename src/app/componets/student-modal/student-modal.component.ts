@@ -9,6 +9,7 @@ import {
 import { ApiService } from '../../services/api.service';
 import { CommonModule } from '@angular/common';
 import { Student } from '../../models/student';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-student-modal',
   imports: [ReactiveFormsModule, CommonModule],
@@ -22,7 +23,8 @@ export class StudentModalComponent implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<StudentModalComponent>,
     private fb: FormBuilder,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private toastService: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -54,8 +56,13 @@ export class StudentModalComponent implements OnInit {
             number: data.number,
             age: data.age,
           }),
-        error: (err) => console.log('Error: ', err),
-        complete: () => console.log('Se ha completado con éxito'),
+        error: (err) => {
+          console.log('Error: ', err);
+          this.toastService.error(
+            'Algo salio mal por favor contacta a servicio técnico',
+            'Error'
+          );
+        },
       });
     }
   }
@@ -82,9 +89,18 @@ export class StudentModalComponent implements OnInit {
       };
       console.log('data, ', data);
       this.apiService.createStudent(data).subscribe({
-        next: (data) => console.log('next', data),
-        error: (err) => console.log('Error: ', err),
-        complete: () => console.log('Se ha completado con éxito'),
+        error: (err) => {
+          console.log('Error: ', err);
+          this.toastService.error(
+            'Algo salio mal por favor contacta a servicio técnico',
+            'Error'
+          );
+        },
+        complete: () =>
+          this.toastService.success(
+            'Se ha creado correctamente el nuevo estudiante',
+            'Éxito'
+          ),
       });
       this.dialogRef.close();
     } else {
@@ -98,9 +114,18 @@ export class StudentModalComponent implements OnInit {
       };
 
       this.apiService.updateStudent(this.data.id, data).subscribe({
-        next: (data) => console.log('next', data),
-        error: (err) => console.log('Error: ', err),
-        complete: () => console.log('Se ha completado con éxito'),
+        error: (err) => {
+          console.log('Error: ', err);
+          this.toastService.error(
+            'Algo salio mal por favor contacta a servicio técnico',
+            'Error'
+          );
+        },
+        complete: () =>
+          this.toastService.success(
+            'Se ha actualizado correctamente la información del estudiante',
+            'Éxito'
+          ),
       });
       this.dialogRef.close();
     }

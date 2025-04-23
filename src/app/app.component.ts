@@ -5,6 +5,7 @@ import { Student } from './models/student';
 import { StudentModalComponent } from './componets/student-modal/student-modal.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { EliminateModalComponent } from './componets/eliminate-modal/eliminate-modal.component';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, MatDialogModule],
@@ -15,13 +16,22 @@ export class AppComponent implements OnInit {
   title = 'ApiGoFront';
   data: Student[] = [];
 
-  constructor(private apiService: ApiService, private dialog: MatDialog) {}
+  constructor(
+    private apiService: ApiService,
+    private dialog: MatDialog,
+    private toasterService: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.apiService.getStudents().subscribe({
       next: (data) => (this.data = data),
-      error: (err) => console.log('Error: ', err),
-      complete: () => console.log('Se ha completado con éxito'),
+      error: (err) => {
+        console.log('Error: ', err);
+        this.toasterService.error(
+          'Algo salio mal por favor contacta a servicio técnico',
+          'Error'
+        );
+      },
     });
   }
 
@@ -39,8 +49,13 @@ export class AppComponent implements OnInit {
       .subscribe((obs) => {
         this.apiService.getStudents().subscribe({
           next: (data) => (this.data = data),
-          error: (err) => console.log('Error: ', err),
-          complete: () => console.log('Se ha completado con éxito'),
+          error: (err) => {
+            console.log('Error: ', err);
+            this.toasterService.error(
+              'Algo salio mal por favor contacta a servicio técnico',
+              'Error'
+            );
+          },
         });
       });
   }
@@ -60,8 +75,13 @@ export class AppComponent implements OnInit {
       .subscribe((obs) => {
         this.apiService.getStudents().subscribe({
           next: (data) => (this.data = data),
-          error: (err) => console.log('Error: ', err),
-          complete: () => console.log('Se ha completado con éxito'),
+          error: (err) => {
+            console.log('Error: ', err);
+            this.toasterService.error(
+              'Algo salio mal por favor contacta a servicio técnico',
+              'Error'
+            );
+          },
         });
       });
   }
