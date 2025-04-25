@@ -1,0 +1,91 @@
+<div class="email-modal">
+  <h4 class="title">
+    Enviar email a <span>{{ data.completeName }}</span>
+  </h4>
+  <form [formGroup]="form">
+    <div style="margin-bottom: 1rem">
+      <label class="label" for="emailTo">Para:</label>
+      <input
+        class="read"
+        type="email"
+        name="emailTo"
+        id="emailTo"
+        readonly
+        formControlName="para"
+      />
+    </div>
+    <div style="margin-bottom: 1rem">
+      <label class="label" for="subject">Asunto:</label>
+      <input
+        class="inputs"
+        type="text"
+        name="subject"
+        id="subject"
+        formControlName="asunto"
+      />
+    </div>
+    <div style="margin-bottom: 1rem">
+      <label class="label" for="greeting">Saludo:</label>
+      <input
+        class="inputs"
+        type="text"
+        name="greeting"
+        id="greeting"
+        formControlName="saludo"
+      />
+    </div>
+
+    <div style="margin-bottom: 1rem">
+      <label class="label" for="message">Mensaje:</label>
+      <textarea
+        name="message"
+        id="message"
+        rows="5"
+        class="inputs"
+        formControlName="mensaje"
+      ></textarea>
+    </div>
+
+    <div style="margin-bottom: 1rem">
+      <label class="label" for="ActionDetails">Detalles:</label>
+      <input
+        class="inputs"
+        type="text"
+        name="ActionDetails"
+        id="ActionDetails"
+      />
+    </div>
+
+    <div style="margin-bottom: 1rem; margin-left: 1.25rem">
+      <button class="addPasos" type="button">
+        Agregar pasos a seguir (Cantidad de pasos:
+        {{ getPasos().controls.length }})
+      </button>
+    </div>
+    <div style="margin-bottom: 1rem">
+      <label class="label" for="remitenteName">Nombre del remitente:</label>
+      <input
+        type="text"
+        class="inputs"
+        name="remitenteName"
+        id="remitenteName"
+      />
+    </div>
+    <div style="margin-bottom: 1.5rem">
+      <label class="label" for="remitenteTitle">Titulo de remitente:</label>
+      <input
+        type="text"
+        class="inputs"
+        name="remitenteTitle"
+        id="remitenteTitle"
+      />
+    </div>
+
+    <div class="container_btns">
+      <button class="btnCancelar" type="button" (click)="close()">
+        Cancelar
+      </button>
+      <button class="save-button" type="submit">Enviar</button>
+    </div>
+  </form>
+</div>

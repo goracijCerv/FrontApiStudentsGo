@@ -126,7 +126,11 @@
                   ></path>
                 </svg>
               </button>
-              <button class="send-email" title="Enviar correo">
+              <button
+                class="send-email"
+                title="Enviar correo"
+                (click)="emailModal(item.name, item.lastname, item.email)"
+              >
                 <svg
                   class="icon-container"
                   fill="none"

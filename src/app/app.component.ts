@@ -6,6 +6,7 @@ import { StudentModalComponent } from './componets/student-modal/student-modal.c
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { EliminateModalComponent } from './componets/eliminate-modal/eliminate-modal.component';
 import { ToastrService } from 'ngx-toastr';
+import { MailModalComponent } from './componets/mail-modal/mail-modal.component';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, MatDialogModule],
@@ -84,5 +85,17 @@ export class AppComponent implements OnInit {
           },
         });
       });
+  }
+  emailModal(name: string, lastname: string, email: string) {
+    this.dialog.open(MailModalComponent, {
+      width: '75%',
+      height: '85%',
+      enterAnimationDuration: '500ms',
+      exitAnimationDuration: '500ms',
+      data: {
+        completeName: name + ' ' + lastname,
+        email: email,
+      },
+    });
   }
 }
