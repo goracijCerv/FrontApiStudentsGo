@@ -48,6 +48,7 @@
 .cancel-button:hover {
   background-color: red;
   border-color: red;
+  cursor: pointer;
 }
 
 .save-button {
@@ -68,6 +69,7 @@
 .save-button:hover {
   background-color: #32cd32;
   border-color: #32cd32;
+  cursor: pointer;
 }
 
 .modal_container {

@@ -9,6 +9,7 @@
   font-weight: 600;
   margin-bottom: 1rem;
   color: #dc2626;
+  margin-top: 0.5rem;
 }
 
 .container-btn {
@@ -38,6 +39,7 @@
 .btnCancelar:hover {
   background-color: #d1d5db;
   border-color: #d1d5db;
+  cursor: pointer;
 }
 
 .btnBorrar {
@@ -57,4 +59,5 @@
 .btnBorrar:hover {
   background-color: red;
   border-color: red;
+  cursor: pointer;
 }

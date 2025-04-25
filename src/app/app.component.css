@@ -72,6 +72,7 @@
 
 .bnt-add:hover {
   background-color: #1d4ed8;
+  cursor: pointer;
 }
 
 .primer-contendor-tabla {
