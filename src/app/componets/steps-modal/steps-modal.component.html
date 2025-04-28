@@ -1,0 +1,23 @@
+<div class="modal" [formGroup]="form">
+  <div class="steps-container" formArrayName="steps">
+    @for(step of steps.controls; track $index; let ind = $index){
+    <div class="step-card">
+      <label for="Paso: {{ ind + 1 }}">Paso: {{ ind + 1 }}</label>
+      <input
+        type="text"
+        name="Paso: {{ ind + 1 }}"
+        id="Paso: {{ ind + 1 }}"
+        [formControlName]="ind"
+      />
+      <button class="remove" (click)="removeSteps(ind)">Remove</button>
+    </div>
+    }@empty {
+    <p>Actualmente no hay ningún paso</p>
+    }
+  </div>
+
+  <div class="modal-actions">
+    <button class="btn btn-add" (click)="addStep()">Agregar un paso</button>
+    <button class="btn btn-close" (click)="close()">Cerrar</button>
+  </div>
+</div>

@@ -2,7 +2,7 @@
   <h4 class="title">
     Enviar email a <span>{{ data.completeName }}</span>
   </h4>
-  <form [formGroup]="form">
+  <form [formGroup]="form" (submit)="sendEmail()">
     <div style="margin-bottom: 1rem">
       <label class="label" for="emailTo">Para:</label>
       <input
@@ -53,11 +53,12 @@
         type="text"
         name="ActionDetails"
         id="ActionDetails"
+        formControlName="detalles"
       />
     </div>
 
     <div style="margin-bottom: 1rem; margin-left: 1.25rem">
-      <button class="addPasos" type="button">
+      <button class="addPasos" type="button" (click)="openStepsModal()">
         Agregar pasos a seguir (Cantidad de pasos:
         {{ getPasos().controls.length }})
       </button>
@@ -69,6 +70,7 @@
         class="inputs"
         name="remitenteName"
         id="remitenteName"
+        formControlName="nombreRemitente"
       />
     </div>
     <div style="margin-bottom: 1.5rem">
@@ -78,6 +80,7 @@
         class="inputs"
         name="remitenteTitle"
         id="remitenteTitle"
+        formControlName="tituloRemitente"
       />
     </div>
 

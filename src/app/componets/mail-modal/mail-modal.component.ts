@@ -14,6 +14,7 @@ import {
 } from '@angular/material/dialog';
 import { ApiService } from '../../services/api.service';
 import { ToastrService } from 'ngx-toastr';
+import { StepsModalComponent } from '../steps-modal/steps-modal.component';
 
 @Component({
   selector: 'app-mail-modal',
@@ -53,9 +54,22 @@ export class MailModalComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  // openStepsModal(): void {
-  //   this.dialog.open( ,{
+  openStepsModal(): void {
+    this.dialog
+      .open(StepsModalComponent, {
+        width: '75%',
+        height: '85%',
+        enterAnimationDuration: '500ms',
+        exitAnimationDuration: '500ms',
+        data: { steps: this.getPasos() },
+      })
+      .afterClosed()
+      .subscribe((obs) => {
+        this.getPasos().updateValueAndValidity();
+      });
+  }
 
-  //   })
-  // }
+  sendEmail(): void {
+    console.log('valores del form: ', this.form.value);
+  }
 }
