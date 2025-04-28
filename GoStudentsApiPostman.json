@@ -1,0 +1,234 @@
+{
+  "info": {
+    "name": "GoStudentsApi",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "CreateStudent",
+      "event": [],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://localhost:8082/api/student",
+          "protocol": "http",
+          "host": [
+            "localhost:8082"
+          ],
+          "path": [
+            "api",
+            "student"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\":\"Ricardo\",\n  \"lastname\":\"Heredia\",\n  \"email\":\"email@example.com\",\n  \"number\":4533,\n  \"age\":24\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "DeleteStudent",
+      "event": [],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://localhost:8082/api/student/:id",
+          "protocol": "http",
+          "host": [
+            "localhost:8082"
+          ],
+          "path": [
+            "api",
+            "student",
+            ":id"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "key": "id",
+              "value": "2"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "get by id",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://localhost:8082/api/student/:id",
+          "protocol": "http",
+          "host": [
+            "localhost:8082"
+          ],
+          "path": [
+            "api",
+            "student",
+            ":id"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "getAll",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://localhost:8082/api/student",
+          "protocol": "http",
+          "host": [
+            "localhost:8082"
+          ],
+          "path": [
+            "api",
+            "student"
+          ],
+          "query": [],
+          "variable": []
+        }
+      }
+    },
+    {
+      "name": "SendEmail",
+      "event": [],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://localhost:8082/api/sendEmail",
+          "protocol": "http",
+          "host": [
+            "localhost:8082"
+          ],
+          "path": [
+            "api",
+            "sendEmail"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"to\":\"JhonDoe@email.com\",\n  \"subject\":\"Confirmación de Registro\",\n  \"greeting\":\"Hola José,\",\n  \"message\":\"Gracias por registrarte para el siguiente curso, estamos emocionados de tenerte abordo. \",\n  \"actionDetails\":\"Tu registro fue realizado con exito, por favor revisa tu bandeja para estar atento a intruciones futuras.\",\n  \"steps\":[\n    \"1. Revisa tu correo para confirmar y ver los detalles del calendario.\",\n    \"2. Prepara los documentos requeridos para la primera sesión.\",\n    \"3. Preparate para empezar a aprender.\"\n  ],\n  \"recipientName\":\"Jhon Doe\",\n  \"senderName\":\"La Administración Escolar\",\n  \"senderTitle\":\"Tu Equipo Escolar\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "UpdateStudent",
+      "event": [],
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://localhost:8082/api/student/:id",
+          "protocol": "http",
+          "host": [
+            "localhost:8082"
+          ],
+          "path": [
+            "api",
+            "student",
+            ":id"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\":\"Horacio\",\n  \"lastname\":\"cervantes\",\n  \"email\":\"email@example.com\",\n  \"number\":4555,\n  \"age\":25\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "welcome",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "http://localhost:8082/",
+          "protocol": "http",
+          "host": [
+            "localhost:8082/"
+          ],
+          "path": [],
+          "query": [],
+          "variable": []
+        }
+      }
+    }
+  ],
+  "variable": []
+}

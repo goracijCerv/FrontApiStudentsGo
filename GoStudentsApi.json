@@ -1,0 +1,225 @@
+{
+  "name": "GoStudentsApi",
+  "version": "1",
+  "items": [
+    {
+      "type": "http",
+      "name": "CreateStudent",
+      "filename": "CreateStudent.bru",
+      "seq": 3,
+      "request": {
+        "url": "http://localhost:8082/api/student",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"name\":\"Ricardo\",\n  \"lastname\":\"Heredia\",\n  \"email\":\"email@example.com\",\n  \"number\":4533,\n  \"age\":24\n}",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "DeleteStudent",
+      "filename": "DeleteStudent.bru",
+      "seq": 7,
+      "request": {
+        "url": "http://localhost:8082/api/student/:id",
+        "method": "DELETE",
+        "headers": [],
+        "params": [
+          {
+            "name": "id",
+            "value": "2",
+            "type": "path",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "json",
+          "json": "",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "get by id",
+      "filename": "get by id.bru",
+      "seq": 4,
+      "request": {
+        "url": "http://localhost:8082/api/student/:id",
+        "method": "GET",
+        "headers": [],
+        "params": [
+          {
+            "name": "id",
+            "value": "1",
+            "type": "path",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "getAll",
+      "filename": "getAll.bru",
+      "seq": 5,
+      "request": {
+        "url": "http://localhost:8082/api/student",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "SendEmail",
+      "filename": "SendEmail.bru",
+      "seq": 8,
+      "request": {
+        "url": "http://localhost:8082/api/sendEmail",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"to\":\"JhonDoe@email.com\",\n  \"subject\":\"Confirmación de Registro\",\n  \"greeting\":\"Hola José,\",\n  \"message\":\"Gracias por registrarte para el siguiente curso, estamos emocionados de tenerte abordo. \",\n  \"actionDetails\":\"Tu registro fue realizado con exito, por favor revisa tu bandeja para estar atento a intruciones futuras.\",\n  \"steps\":[\n    \"1. Revisa tu correo para confirmar y ver los detalles del calendario.\",\n    \"2. Prepara los documentos requeridos para la primera sesión.\",\n    \"3. Preparate para empezar a aprender.\"\n  ],\n  \"recipientName\":\"Jhon Doe\",\n  \"senderName\":\"La Administración Escolar\",\n  \"senderTitle\":\"Tu Equipo Escolar\"\n}",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "UpdateStudent",
+      "filename": "UpdateStudent.bru",
+      "seq": 6,
+      "request": {
+        "url": "http://localhost:8082/api/student/:id",
+        "method": "PUT",
+        "headers": [],
+        "params": [
+          {
+            "name": "id",
+            "value": "1",
+            "type": "path",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "json",
+          "json": "{\n  \"name\":\"Horacio\",\n  \"lastname\":\"cervantes\",\n  \"email\":\"email@example.com\",\n  \"number\":4555,\n  \"age\":25\n}",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "welcome",
+      "filename": "welcome.bru",
+      "seq": 2,
+      "request": {
+        "url": "http://localhost:8082/",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "inherit"
+        }
+      }
+    }
+  ],
+  "environments": [],
+  "brunoConfig": {
+    "version": "1",
+    "name": "GoStudentsApi",
+    "type": "collection",
+    "ignore": [
+      "node_modules",
+      ".git"
+    ],
+    "size": 0.0012540817260742188,
+    "filesCount": 7
+  }
+}
