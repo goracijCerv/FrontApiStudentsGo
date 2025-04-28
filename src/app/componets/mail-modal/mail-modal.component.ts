@@ -15,6 +15,7 @@ import {
 import { ApiService } from '../../services/api.service';
 import { ToastrService } from 'ngx-toastr';
 import { StepsModalComponent } from '../steps-modal/steps-modal.component';
+import { EmailPayload } from '../../models/student';
 
 @Component({
   selector: 'app-mail-modal',
@@ -36,7 +37,7 @@ export class MailModalComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.fb.group({
       para: [this.data.email],
-      asunto: [, Validators.required],
+      asunto: [],
       saludo: [],
       mensaje: [, Validators.required],
       detalles: [],
@@ -70,6 +71,37 @@ export class MailModalComponent implements OnInit {
   }
 
   sendEmail(): void {
-    console.log('valores del form: ', this.form.value);
+    if (this.form.invalid) {
+      console.log('form: ', this.form);
+      return;
+    }
+
+    const emailData: EmailPayload = {
+      to: this.form.get('para')?.value,
+      subject: this.form.get('asunto')?.value,
+      greeting: this.form.get('saludo')?.value,
+      message: this.form.get('mensaje')?.value,
+      actionDetails: this.form.get('detalles')?.value,
+      steps: this.form.get('pasos')?.value,
+      recipientName: this.data.completeName,
+      senderName: this.form.get('nombreRemitente')?.value,
+      senderTitle: this.form.get('tituloRemitente')?.value,
+    };
+
+    this.apiService.sendEmail(emailData).subscribe({
+      complete: () => {
+        this.toastService.success(
+          'Se ha enviado el correo electrónico correctamente.',
+          'Enviado'
+        );
+      },
+      error: (err) => {
+        console.log('Error', err);
+        this.toastService.error(
+          'Algo salio mal por favor hable con soporte técnico',
+          'Error'
+        );
+      },
+    });
   }
 }

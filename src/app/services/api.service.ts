@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { Observable } from 'rxjs';
-import { Student } from '../models/student';
+import { EmailPayload, Student } from '../models/student';
 
 @Injectable({
   providedIn: 'root',
@@ -28,5 +28,9 @@ export class ApiService {
 
   deleteStudent(id: number): Observable<any> {
     return this.http.delete(environment.apiUrl + `/api/student/${id}`);
+  }
+
+  sendEmail(data: EmailPayload): Observable<any> {
+    return this.http.post(environment.apiUrl + `/api/sendEmail`, data);
   }
 }
